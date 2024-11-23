@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emissions Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+        h3 {
+            margin-top: 0;
+        }
+        p {
+            margin: 10px 0;
+        }
+        a {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Emissions Calculation Results</h1>
+        
+        <h3>Scope 1: Direct Fuel Emissions</h3>
+        <p>Fuel Quantity: {{ scope1 | round(2) }} kg CO₂</p>
+
+        <h3>Scope 2: Electricity Emissions</h3>
+        <p>Electricity Quantity: {{ scope2 | round(2) }} kg CO₂</p>
+
+        <h3>Total Emissions:</h3>
+        <p>Total CO₂ Emissions: {{ total | round(2) }} kg CO₂</p>
+        
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>

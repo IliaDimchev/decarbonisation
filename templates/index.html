@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emissions Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+        h3 {
+            margin-top: 0;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Emissions Calculator</h1>
+        <h3>Adjust Emission Factors:</h3>
+        <form method="POST" action="/">
+            <label>Diesel Emission Factor (kg CO₂/liter):</label>
+            <input type="number" step="0.01" name="diesel_emission_factor" value="{{ diesel_emission_factor }}">
+            
+            <label>Electricity Emission Factor (kg CO₂/kWh):</label>
+            <input type="number" step="0.01" name="electricity_emission_factor" value="{{ electricity_emission_factor }}">
+            
+            <h3>Enter Quantities:</h3>
+            <label>Fuel Quantity (liters):</label>
+            <input type="number" step="0.01" name="fuel_quantity" value="0">
+            
+            <label>Electricity Quantity (kWh):</label>
+            <input type="number" step="0.01" name="electricity_quantity" value="0">
+            
+            <button type="submit">Calculate</button>
+        </form>
+        
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
