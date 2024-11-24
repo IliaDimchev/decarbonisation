@@ -35,7 +35,7 @@
             display: block;
             margin: 10px 0 5px;
         }
-        input[type="number"] {
+        select, input[type="number"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -64,13 +64,17 @@
 <body>
     <div class="container">
         <h1>Emissions Calculator</h1>
-        <h3>Adjust Emission Factors:</h3>
+        <h3>Select Region:</h3>
         <form method="POST" action="/">
-            <label>Diesel Emission Factor (kg CO₂/liter):</label>
-            <input type="number" step="0.01" name="diesel_emission_factor" value="{{ diesel_emission_factor }}">
-            
-            <label>Electricity Emission Factor (kg CO₂/kWh):</label>
-            <input type="number" step="0.01" name="electricity_emission_factor" value="{{ electricity_emission_factor }}">
+            <label>Region:</label>
+            <select name="region">
+                <option value="ivory_coast">Ivory Coast</option>
+                <option value="ghana">Ghana</option>
+                <option value="mali">Mali</option>
+                <option value="burkina_faso">Burkina Faso</option>
+                <option value="liberia">Liberia</option>
+                <option value="guinea">Guinea</option>
+            </select>
             
             <h3>Enter Quantities:</h3>
             <label>Fuel Quantity (liters):</label>
